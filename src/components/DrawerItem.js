@@ -1,6 +1,6 @@
 /* @flow */
 
-import color from 'color';
+import Color from 'color';
 import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from './Icon';
@@ -45,14 +45,14 @@ const DrawerItem = ({
   const backgroundColor = active ? (dark ? grey700 : grey300) : 'transparent';
   const labelColor = active
     ? activeColor || colors.text
-    : color(colors.text)
+    : new Color(colors.text)
         .alpha(0.54)
-        .rgbaString();
+        .string();
   const iconColor = active
     ? activeColor || colors.text
-    : color(colors.text)
+    : new Color(colors.text)
         .alpha(0.54)
-        .rgbaString();
+        .string();
   const fontFamily = theme.fonts.medium;
   const labelMargin = icon ? 32 : 0;
   return (

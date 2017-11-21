@@ -1,6 +1,6 @@
 /* @flow */
 
-import color from 'color';
+import Color from 'color';
 import * as React from 'react';
 import Text from './Text';
 import withTheme from '../../core/withTheme';
@@ -16,9 +16,9 @@ type Props = {
 class StyledText extends React.Component<Props> {
   render() {
     const { theme, alpha, family, style, ...rest } = this.props;
-    const textColor = color(theme.colors.text)
+    const textColor = new Color(theme.colors.text)
       .alpha(alpha)
-      .rgbaString();
+      .string();
     const fontFamily = theme.fonts[family];
 
     return (

@@ -7,7 +7,7 @@ import {
   Platform,
   View,
 } from 'react-native';
-import color from 'color';
+import Color from 'color';
 
 const ANDROID_VERSION_LOLLIPOP = 21;
 
@@ -82,9 +82,9 @@ export default class TouchableRipple extends React.Component<Props, void> {
         underlayColor={
           underlayColor != null
             ? underlayColor
-            : color(rippleColor)
-                .clearer(0.5)
-                .rgbaString()
+            : new Color(rippleColor)
+                .fade(0.5)
+                .string()
         }
       >
         {React.Children.only(children)}

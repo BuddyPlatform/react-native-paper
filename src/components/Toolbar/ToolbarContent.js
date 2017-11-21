@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import color from 'color';
+import Color from 'color';
 
 import Text from '../Typography/Text';
 
@@ -54,7 +54,7 @@ class ToolbarContent extends React.Component<Props> {
     const subtitleColor = dark
       ? color(white)
           .alpha(0.7)
-          .rgbaString()
+          .string()
       : secondaryText;
 
     return (

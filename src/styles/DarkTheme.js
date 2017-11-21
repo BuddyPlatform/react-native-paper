@@ -1,6 +1,6 @@
 /* @flow */
 
-import color from 'color';
+import Color from 'color';
 import DefaultTheme from './DefaultTheme';
 import { white, grey800, cyan500, cyan700 } from './colors';
 import type { Theme } from '../types';
@@ -15,15 +15,15 @@ const DarkTheme: Theme = {
     background: '#303030',
     paper: grey800,
     text: white,
-    secondaryText: color(white)
+    secondaryText: new Color(white)
       .alpha(0.7)
-      .rgbaString(),
-    disabled: color(white)
+      .string(),
+    disabled: new Color(white)
       .alpha(0.5)
-      .rgbaString(),
-    placeholder: color(white)
+      .string(),
+    placeholder: new Color(white)
       .alpha(0.38)
-      .rgbaString(),
+      .string(),
   },
 };
 

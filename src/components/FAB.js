@@ -1,6 +1,6 @@
 /* @flow */
 
-import color from 'color';
+import Color from 'color';
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Paper from './Paper';
@@ -56,9 +56,9 @@ const FAB = (props: Props) => {
   const isDark =
     typeof dark === 'boolean' ? dark : !color(backgroundColor).light();
   const textColor = iconColor || (isDark ? white : 'rgba(0, 0, 0, .54)');
-  const rippleColor = color(textColor)
+  const rippleColor = new Color(textColor)
     .alpha(0.32)
-    .rgbaString();
+    .string();
 
   return (
     <Paper

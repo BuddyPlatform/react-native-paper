@@ -1,6 +1,6 @@
 /* @flow */
 
-import color from 'color';
+import Color from 'color';
 import { indigo500, indigo700, pinkA200, black, white, grey50 } from './colors';
 import fonts from './fonts';
 
@@ -14,15 +14,15 @@ export default {
     background: grey50,
     paper: white,
     text: black,
-    secondaryText: color(black)
+    secondaryText: new Color(black)
       .alpha(0.7)
-      .rgbaString(),
-    disabled: color(black)
+      .string(),
+    disabled: new Color(black)
       .alpha(0.25)
-      .rgbaString(),
-    placeholder: color(black)
+      .string(),
+    placeholder: new Color(black)
       .alpha(0.38)
-      .rgbaString(),
+      .string(),
   },
   fonts,
 };

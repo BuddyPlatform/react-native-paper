@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Animated, View, Platform, StyleSheet } from 'react-native';
-import color from 'color';
+import Color from 'color';
 import TouchableRipple from './TouchableRipple';
 import withTheme from '../core/withTheme';
 import type { Theme } from '../types';
@@ -100,9 +100,9 @@ class RadioButton extends React.Component<Props, State> {
       rippleColor = 'rgba(0, 0, 0, .16)';
       radioColor = theme.colors.disabled;
     } else {
-      rippleColor = color(checkedColor)
-        .clearer(0.32)
-        .rgbaString();
+      rippleColor = new Color(checkedColor)
+        .fade(0.32)
+        .string();
       radioColor = checked ? checkedColor : uncheckedColor;
     }
 

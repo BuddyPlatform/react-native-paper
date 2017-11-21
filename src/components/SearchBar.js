@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-import color from 'color';
+import Color from 'color';
 import withTheme from '../core/withTheme';
 import Icon from './Icon';
 import TouchableIcon from './TouchableIcon';
@@ -78,12 +78,12 @@ class SearchBar extends React.Component<Props> {
     const textColor = colors.text;
     const iconColor = dark
       ? textColor
-      : color(textColor)
+      : new Color(textColor)
           .alpha(0.54)
-          .rgbaString();
-    const rippleColor = color(textColor)
+          .string();
+    const rippleColor = new Color(textColor)
       .alpha(0.32)
-      .rgbaString();
+      .string();
 
     return (
       <Paper

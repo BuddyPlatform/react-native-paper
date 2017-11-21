@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
-import color from 'color';
+import Color from 'color';
 import Icon from './Icon';
 import TouchableRipple from './TouchableRipple';
 import withTheme from '../core/withTheme';
@@ -44,9 +44,9 @@ class Checkbox extends React.Component<Props> {
     if (disabled) {
       rippleColor = 'rgba(0, 0, 0, .16)';
     } else {
-      rippleColor = color(checkedColor)
-        .clearer(0.32)
-        .rgbaString();
+      rippleColor = new Color(checkedColor)
+        .fade(0.32)
+        .string();
     }
 
     return (

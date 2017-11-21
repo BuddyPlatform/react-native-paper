@@ -1,6 +1,6 @@
 /* @flow */
 
-import color from 'color';
+import Color from 'color';
 import * as React from 'react';
 import { ActivityIndicator, Animated, View, StyleSheet } from 'react-native';
 import Icon from './Icon';
@@ -149,7 +149,7 @@ class Button extends React.Component<Props, State> {
       isDark =
         backgroundColor === 'transparent'
           ? false
-          : !color(backgroundColor).light();
+          : !new Color(backgroundColor).light();
     }
 
     if (disabled) {
@@ -172,9 +172,9 @@ class Button extends React.Component<Props, State> {
       }
     }
 
-    const rippleColor = color(textColor)
+    const rippleColor = new Color(textColor)
       .alpha(0.32)
-      .rgbaString();
+      .string();
     const buttonStyle = { backgroundColor, borderRadius: roundness };
     const touchableStyle = { borderRadius: roundness };
     const textStyle = { color: textColor, fontFamily };

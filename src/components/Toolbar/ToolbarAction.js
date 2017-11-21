@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
-import color from 'color';
+import Color from 'color';
 
 import { black, white } from '../../styles/colors';
 import TouchableRipple from '../TouchableRipple';
@@ -37,12 +37,12 @@ export default class ToolbarAction extends React.Component<Props> {
 
     const iconColor = dark
       ? white
-      : color(black)
+      : new Color(black)
           .alpha(0.54)
-          .rgbaString();
-    const rippleColor = color(iconColor)
+          .string();
+    const rippleColor = new Color(iconColor)
       .alpha(0.32)
-      .rgbaString();
+      .string();
 
     return (
       <TouchableRipple

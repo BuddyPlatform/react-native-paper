@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Platform } from 'react-native';
-import color from 'color';
+import Color from 'color';
 
 import ToolbarAction from './ToolbarAction';
 import Icon from '../Icon';
@@ -12,9 +12,9 @@ const getBackIcon = Platform.select({
   ios: (dark?: boolean) => {
     const iconColor = dark
       ? white
-      : color(black)
+      : new Color(black)
           .alpha(0.54)
-          .rgbaString();
+          .string();
     return <Icon name="keyboard-arrow-left" size={36} color={iconColor} />;
   },
   android: () => 'arrow-back',
