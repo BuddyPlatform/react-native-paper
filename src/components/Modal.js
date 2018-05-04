@@ -8,6 +8,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   BackHandler,
+  Platform,
 } from 'react-native';
 import { polyfill } from 'react-lifecycles-compat';
 import ThemedPortal from './Portal/ThemedPortal';
@@ -165,9 +166,14 @@ polyfill(Modal);
 
 export default Modal;
 
+const marginTop = Platform.select({
+  ios: { marginTop: '25%' },
+  android: { marginTop: '-5%' },
+});
+
 const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
+    ...marginTop,
   },
 });
