@@ -140,7 +140,7 @@ class Modal extends React.Component<Props, State> {
     return (
       <ThemedPortal>
         <Animated.View
-          style={[{ opacity: this.state.opacity }, styles.wrapper]}
+          style={[{ opacity: this.state.opacity }, StyleSheet.absoluteFill]}
         >
           <View
             style={[
@@ -153,7 +153,7 @@ class Modal extends React.Component<Props, State> {
               <View style={StyleSheet.absoluteFill} />
             </TouchableWithoutFeedback>
           )}
-          <Animated.View style={[{ opacity: this.state.opacity }]}>
+          <Animated.View style={[{ opacity: this.state.opacity }, childrenWrapper]}>
             {children}
           </Animated.View>
         </Animated.View>
@@ -166,14 +166,7 @@ polyfill(Modal);
 
 export default Modal;
 
-const marginTop = Platform.select({
-  ios: { marginTop: '25%' },
+const childrenWrapper = Platform.select({
+  ios: { marginTop: '10%' },
   android: { marginTop: '-5%' },
-});
-
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFillObject,
-    ...marginTop,
-  },
 });
