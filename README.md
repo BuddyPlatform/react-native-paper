@@ -1,12 +1,17 @@
-# React Native Paper
+<p align="center">
+  <img alt="react-native-paper" src="docs/assets/images/paper-color.png" width="300">
+</p>
+<p align="center">
+  Material design for React Native.
+</p>
+
+---
 
 [![Build Status][build-badge]][build]
 [![Version][version-badge]][package]
 [![MIT License][license-badge]][license]
 [![PRs Welcome][prs-welcome-badge]][prs-welcome]
 [![Chat][chat-badge]][chat]
-
-Material design for React Native.
 
 ## Features
 
@@ -43,5 +48,5 @@ Read the [contribution guidelines](/CONTRIBUTING.md) before contributing.
 [license]: https://opensource.org/licenses/MIT
 [prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs-welcome]: http://makeapullrequest.com
-[chat-badge]: https://img.shields.io/badge/chat-slack-brightgreen.svg?style=flat-square&colorB=E01563
-[chat]: https://slack.callstack.io/
+[chat-badge]: https://img.shields.io/discord/426714625279524876.svg?style=flat-square&colorB=758ED3
+[chat]: https://discord.gg/zwR2Cdh

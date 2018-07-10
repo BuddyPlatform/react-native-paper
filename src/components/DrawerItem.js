@@ -2,11 +2,12 @@
 
 import color from 'color';
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Icon from './Icon';
 import TouchableRipple from './TouchableRipple';
 import { grey300, grey700 } from '../styles/colors';
 import withTheme from '../core/withTheme';
+import Text from './Typography/Text';
 import type { Theme } from '../types';
 import type { IconSource } from './Icon';
 
@@ -16,10 +17,7 @@ type Props = {
    */
   label: string,
   /**
-   * Name of the icon. Can be a string (name of `MaterialIcon`),
-   * an object of shape `{ uri: 'https://path.to' }`,
-   * a local image: `require('../path/to/image.png')`,
-   * or a valid React Native component.
+   * Icon to display for the `DrawerItem`.
    */
   icon?: IconSource,
   /**
@@ -29,7 +27,7 @@ type Props = {
   /**
    * Function to execute on press.
    */
-  onPress?: Function,
+  onPress?: () => mixed,
   /**
    * Custom color for the drawer text and icon.
    */
@@ -86,12 +84,14 @@ class DrawerItem extends React.Component<Props> {
           {icon && <Icon name={icon} size={24} color={iconColor} />}
           <Text
             numberOfLines={1}
-            style={{
-              color: labelColor,
-              fontFamily,
-              marginLeft: labelMargin,
-              marginRight: 32,
-            }}
+            style={[
+              {
+                color: labelColor,
+                fontFamily,
+                marginLeft: labelMargin,
+              },
+              styles.label,
+            ]}
           >
             {label}
           </Text>
@@ -106,8 +106,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingVertical: 12,
     height: 48,
+  },
+  label: {
+    marginRight: 32,
   },
 });
 

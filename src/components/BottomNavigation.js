@@ -136,6 +136,15 @@ type Props<T> = {
    */
   getLabelText?: (props: { route: T }) => string,
   /**
+   * Get accessibility label for the tab button. This is read by the screen reader when the user taps the tab.
+   * The label for the tab is used as the accessibility label by default.
+   */
+  getAccessibilityLabel?: (props: { route: T }) => ?string,
+  /**
+   * Get the id to locate this tab button in tests.
+   */
+  getTestID?: (props: { route: T }) => ?string,
+  /**
    * Get color for the tab, uses `route.color` by default.
    */
   getColor?: (props: { route: T }) => string,
@@ -245,7 +254,7 @@ const calculateShift = (activeIndex, currentIndex, numberOfItems) => {
  * Bottom navigation provides quick navigation between top-level views of an app with a bottom tab bar.
  * It is primarily designed for use on mobile.
  *
- * For integration with React Navigation, you can use [react-navigation-tabs](https://github.com/react-navigation/react-navigation-tabs).
+ * For integration with React Navigation, you can use [react-navigation-material-bottom-tab-navigator](https://github.com/react-navigation/react-navigation-material-bottom-tab-navigator).
  *
  * <div class="screenshots">
  *   <img class="medium" src="screenshots/bottom-navigation.gif" />
@@ -445,7 +454,13 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
     });
 
   _handleTabPress = (index: number) => {
-    const { navigationState } = this.props;
+    const { navigationState, onTabPress, onIndexChange } = this.props;
+
+    if (onTabPress) {
+      onTabPress({
+        route: navigationState.routes[index],
+      });
+    }
 
     this.state.touch.setValue(MIN_RIPPLE_SCALE);
 
@@ -457,13 +472,7 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
     }).start();
 
     if (index !== navigationState.index) {
-      this.props.onIndexChange(index);
-    }
-
-    if (this.props.onTabPress) {
-      this.props.onTabPress({
-        route: navigationState.routes[index],
-      });
+      onIndexChange(index);
     }
   };
 
@@ -483,6 +492,8 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
       renderLabel,
       getLabelText = ({ route }: Object) => route.title,
       getColor = ({ route }: Object) => route.color,
+      getAccessibilityLabel = ({ route }: Object) => route.accessibilityLabel,
+      getTestID = ({ route }: Object) => route.testID,
       barStyle,
       style,
       theme,
@@ -570,6 +581,12 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
                 key={route.key}
                 pointerEvents={
                   navigationState.index === index ? 'auto' : 'none'
+                }
+                accessibilityElementsHidden={navigationState.index !== index}
+                importantForAccessibility={
+                  navigationState.index === index
+                    ? 'auto'
+                    : 'no-hide-descendants'
                 }
                 style={[
                   StyleSheet.absoluteFill,
@@ -704,10 +721,23 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
               const inactiveIconOpacity = inactiveOpacity;
               const inactiveLabelOpacity = inactiveOpacity;
 
+              let accessibilityLabel = getAccessibilityLabel({
+                route,
+              });
+
+              accessibilityLabel =
+                typeof accessibilityLabel !== 'undefined'
+                  ? accessibilityLabel
+                  : getLabelText({ route });
+
               return (
                 <TouchableWithoutFeedback
                   key={route.key}
                   onPress={() => this._handleTabPress(index)}
+                  testID={getTestID({ route })}
+                  accessibilityLabel={accessibilityLabel}
+                  accessibilityTraits="button"
+                  accessibilityComponentType="button"
                 >
                   <Animated.View
                     style={[styles.item, { transform: [{ translateX }] }]}
@@ -732,7 +762,6 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
                           })
                         ) : (
                           <Icon
-                            style={styles.icon}
                             name={(route: Object).icon}
                             color={activeColor}
                             size={24}
@@ -754,7 +783,6 @@ class BottomNavigation<T: *> extends React.Component<Props<T>, State> {
                             })
                           ) : (
                             <Icon
-                              style={styles.icon}
                               name={(route: Object).icon}
                               color={inactiveColor}
                               size={24}
@@ -873,9 +901,6 @@ const styles = StyleSheet.create({
   iconWrapper: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
-  },
-  icon: {
-    backgroundColor: 'transparent',
   },
   labelContainer: {
     height: 18,

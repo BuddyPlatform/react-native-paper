@@ -2,18 +2,29 @@
 
 import color from 'color';
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Animated } from 'react-native';
 import Paper from './Paper';
-import Icon from './Icon';
+import CrossFadeIcon from './CrossFadeIcon';
+import Text from './Typography/Text';
 import TouchableRipple from './TouchableRipple';
 import { white } from '../styles/colors';
 import withTheme from '../core/withTheme';
 import type { Theme } from '../types';
 import type { IconSource } from './Icon';
 
+const AnimatedPaper = Animated.createAnimatedComponent(Paper);
+
 type Props = {
   /**
-   *  Whether FAB is mini-sized, used to create visual continuity with other elements.
+   * Icon to display for the `FAB`.
+   */
+  icon: IconSource,
+  /**
+   * Optional label for extended `FAB`.
+   */
+  label?: string,
+  /**
+   *  Whether FAB is mini-sized, used to create visual continuity with other elements. This has no effect if `label` is specified.
    */
   small?: boolean,
   /**
@@ -21,20 +32,13 @@ type Props = {
    */
   dark?: boolean,
   /**
-   * Name of the icon. Can be a string (name of `MaterialIcon`),
-   * an object of shape `{ uri: 'https://path.to' }`,
-   * a local image: `require('../path/to/image.png')`,
-   * or a valid React Native component.
-   */
-  icon: IconSource,
-  /**
-   * Custom color for the FAB.
+   * Custom color for the `FAB`.
    */
   color?: string,
   /**
    * Function to execute on press.
    */
-  onPress?: Function,
+  onPress?: () => mixed,
   style?: any,
   /**
    * @optional
@@ -46,7 +50,8 @@ type Props = {
  * A floating action button represents the primary action in an application.
  *
  * <div class="screenshots">
- *   <img src="screenshots/fab.png" />
+ *   <img src="screenshots/fab-1.png" />
+ *   <img src="screenshots/fab-2.png" />
  * </div>
  *
  * ## Usage
@@ -69,13 +74,16 @@ class FAB extends React.Component<Props> {
       small,
       dark,
       icon,
+      label,
       color: iconColor,
       onPress,
       theme,
       style,
       ...rest
     } = this.props;
-    const backgroundColor = theme.colors.accent;
+
+    const { backgroundColor = theme.colors.accent } =
+      StyleSheet.flatten(style) || {};
     const isDark =
       typeof dark === 'boolean' ? dark : !color(backgroundColor).light();
     const textColor = iconColor || (isDark ? white : 'rgba(0, 0, 0, .54)');
@@ -85,44 +93,64 @@ class FAB extends React.Component<Props> {
       .string();
 
     return (
-      <Paper
+      <AnimatedPaper
         {...rest}
-        style={[
-          { backgroundColor, elevation: 12 },
-          styles.content,
-          small ? styles.small : styles.standard,
-          style,
-        ]}
+        style={[{ backgroundColor, elevation: 12 }, styles.container, style]}
       >
         <TouchableRipple
           borderless
           onPress={onPress}
           rippleColor={rippleColor}
-          style={[styles.content, small ? styles.small : styles.standard]}
+          style={styles.container}
         >
-          <View>
-            <Icon name={icon} size={24} color={textColor} />
+          <View
+            style={[
+              styles.content,
+              label ? styles.extended : small ? styles.small : styles.standard,
+            ]}
+            pointerEvents="none"
+          >
+            <CrossFadeIcon source={icon} size={24} color={textColor} />
+            {label ? (
+              <Text
+                style={[
+                  styles.label,
+                  { color: textColor, fontFamily: theme.fonts.medium },
+                ]}
+              >
+                {label.toUpperCase()}
+              </Text>
+            ) : null}
           </View>
         </TouchableRipple>
-      </Paper>
+      </AnimatedPaper>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  content: {
-    alignItems: 'center',
-    justifyContent: 'center',
+  container: {
+    borderRadius: 28,
   },
   standard: {
     height: 56,
     width: 56,
-    borderRadius: 28,
   },
   small: {
     height: 40,
     width: 40,
-    borderRadius: 20,
+  },
+  extended: {
+    height: 48,
+    paddingHorizontal: 16,
+  },
+  content: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  label: {
+    marginHorizontal: 8,
   },
 });
 

@@ -5,7 +5,6 @@ import { StyleSheet, TextInput } from 'react-native';
 
 import color from 'color';
 import withTheme from '../core/withTheme';
-import Icon from './Icon';
 import TouchableIcon from './TouchableIcon';
 import Paper from './Paper';
 import type { Theme } from '../types';
@@ -31,7 +30,7 @@ type Props = {
   /**
    * Callback to execute if we want the left icon to act as button.
    */
-  onIconPress?: Function,
+  onIconPress?: () => mixed,
   style?: any,
   /**
    * @optional
@@ -143,23 +142,13 @@ class Searchbar extends React.Component<Props> {
           style,
         ]}
       >
-        {onIconPress ? (
-          <TouchableIcon
-            borderless
-            rippleColor={rippleColor}
-            onPress={onIconPress}
-            color={iconColor}
-            iconStyle={styles.icon}
-            name={icon || 'search'}
-          />
-        ) : (
-          <Icon
-            style={styles.icon}
-            name={icon || 'search'}
-            size={24}
-            color={iconColor}
-          />
-        )}
+        <TouchableIcon
+          borderless
+          rippleColor={rippleColor}
+          onPress={onIconPress}
+          color={iconColor}
+          name={icon || 'search'}
+        />
         <TextInput
           style={[styles.input, { color: textColor }]}
           placeholder={placeholder || ''}
@@ -179,7 +168,6 @@ class Searchbar extends React.Component<Props> {
             color={iconColor}
             rippleColor={rippleColor}
             onPress={this._handleClearPress}
-            iconStyle={styles.icon}
             name="close"
           />
         ) : null}
@@ -198,9 +186,6 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     paddingLeft: 8,
-  },
-  icon: {
-    margin: 12,
   },
 });
 

@@ -26,7 +26,9 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
     }
   >
     <View
+      accessibilityElementsHidden={false}
       collapsable={false}
+      importantForAccessibility="auto"
       pointerEvents="auto"
       removeClippedSubviews={false}
       style={
@@ -46,7 +48,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "flex": 1,
@@ -59,7 +60,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Array [
         Object {
@@ -100,7 +100,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         pointerEvents="none"
         style={
           Object {
@@ -124,14 +123,10 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
         }
       />
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 0"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -149,10 +144,8 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -168,7 +161,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -188,7 +180,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             </icon>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -209,7 +200,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -227,7 +217,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -244,7 +233,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             />
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -263,14 +251,10 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 1"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -288,10 +272,8 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -307,7 +289,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -327,7 +308,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             </icon>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -348,7 +328,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -366,7 +345,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -383,7 +361,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             />
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -402,14 +379,10 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 2"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -427,10 +400,8 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -446,7 +417,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -466,7 +436,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             </icon>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -487,7 +456,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -505,7 +473,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -522,7 +489,6 @@ exports[`renders custom icon and label in non-shifting bottom navigation 1`] = `
             />
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -571,7 +537,9 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
     }
   >
     <View
+      accessibilityElementsHidden={false}
       collapsable={false}
+      importantForAccessibility="auto"
       pointerEvents="auto"
       removeClippedSubviews={false}
       style={
@@ -591,7 +559,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "flex": 1,
@@ -604,7 +571,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Array [
         Object {
@@ -645,7 +611,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         pointerEvents="none"
         style={
           Object {
@@ -669,7 +634,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
         }
       />
       <View
-        collapsable={undefined}
         pointerEvents="none"
         style={
           Object {
@@ -693,14 +657,10 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
         }
       />
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 0"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -718,10 +678,8 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -737,7 +695,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -758,7 +715,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -776,7 +732,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -795,14 +750,10 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 1"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -820,10 +771,8 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -839,7 +788,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -860,7 +808,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -878,7 +825,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -897,14 +843,10 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 2"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -922,10 +864,8 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -941,7 +881,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -962,7 +901,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -980,7 +918,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -999,14 +936,10 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 3"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1024,10 +957,8 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -1043,7 +974,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1064,7 +994,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -1082,7 +1011,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1101,14 +1029,10 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 4"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1126,10 +1050,8 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -1145,7 +1067,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1166,7 +1087,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -1184,7 +1104,6 @@ exports[`renders custom icon and label in shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1233,7 +1152,9 @@ exports[`renders non-shifting bottom navigation 1`] = `
     }
   >
     <View
+      accessibilityElementsHidden={false}
       collapsable={false}
+      importantForAccessibility="auto"
       pointerEvents="auto"
       removeClippedSubviews={false}
       style={
@@ -1253,7 +1174,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "flex": 1,
@@ -1266,7 +1186,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Array [
         Object {
@@ -1307,7 +1226,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         pointerEvents="none"
         style={
           Object {
@@ -1331,14 +1249,10 @@ exports[`renders non-shifting bottom navigation 1`] = `
         }
       />
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 0"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1356,10 +1270,8 @@ exports[`renders non-shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -1375,7 +1287,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1392,6 +1303,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -1413,7 +1325,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             </Text>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1430,6 +1341,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -1452,7 +1364,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -1470,7 +1381,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1485,7 +1395,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -1507,6 +1416,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -1527,7 +1437,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             </Text>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1542,7 +1451,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -1564,6 +1472,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -1586,14 +1495,10 @@ exports[`renders non-shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 1"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1611,10 +1516,8 @@ exports[`renders non-shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -1630,7 +1533,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1647,6 +1549,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -1668,7 +1571,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             </Text>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1685,6 +1587,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -1707,7 +1610,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -1725,7 +1627,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1740,7 +1641,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -1762,6 +1662,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -1782,7 +1683,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             </Text>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1797,7 +1697,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -1819,6 +1718,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -1841,14 +1741,10 @@ exports[`renders non-shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 2"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1866,10 +1762,8 @@ exports[`renders non-shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -1885,7 +1779,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1902,6 +1795,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -1923,7 +1817,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             </Text>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -1940,6 +1833,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -1962,7 +1856,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -1980,7 +1873,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -1995,7 +1887,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -2017,6 +1908,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -2037,7 +1929,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             </Text>
           </View>
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -2052,7 +1943,6 @@ exports[`renders non-shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -2074,6 +1964,7 @@ exports[`renders non-shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -2126,7 +2017,9 @@ exports[`renders shifting bottom navigation 1`] = `
     }
   >
     <View
+      accessibilityElementsHidden={false}
       collapsable={false}
+      importantForAccessibility="auto"
       pointerEvents="auto"
       removeClippedSubviews={false}
       style={
@@ -2146,7 +2039,6 @@ exports[`renders shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         style={
           Object {
             "flex": 1,
@@ -2159,7 +2051,6 @@ exports[`renders shifting bottom navigation 1`] = `
     </View>
   </View>
   <View
-    collapsable={undefined}
     style={
       Array [
         Object {
@@ -2200,7 +2091,6 @@ exports[`renders shifting bottom navigation 1`] = `
       }
     >
       <View
-        collapsable={undefined}
         pointerEvents="none"
         style={
           Object {
@@ -2224,7 +2114,6 @@ exports[`renders shifting bottom navigation 1`] = `
         }
       />
       <View
-        collapsable={undefined}
         pointerEvents="none"
         style={
           Object {
@@ -2248,14 +2137,10 @@ exports[`renders shifting bottom navigation 1`] = `
         }
       />
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 0"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2273,10 +2158,8 @@ exports[`renders shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -2292,7 +2175,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -2309,6 +2191,7 @@ exports[`renders shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -2331,7 +2214,6 @@ exports[`renders shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -2349,7 +2231,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -2364,7 +2245,6 @@ exports[`renders shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -2386,6 +2266,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -2408,14 +2289,10 @@ exports[`renders shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 1"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2433,10 +2310,8 @@ exports[`renders shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -2452,7 +2327,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -2469,6 +2343,7 @@ exports[`renders shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -2491,7 +2366,6 @@ exports[`renders shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -2509,7 +2383,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -2524,7 +2397,6 @@ exports[`renders shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -2546,6 +2418,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -2568,14 +2441,10 @@ exports[`renders shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 2"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2593,10 +2462,8 @@ exports[`renders shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -2612,7 +2479,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -2629,6 +2495,7 @@ exports[`renders shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -2651,7 +2518,6 @@ exports[`renders shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -2669,7 +2535,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -2684,7 +2549,6 @@ exports[`renders shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -2706,6 +2570,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -2728,14 +2593,10 @@ exports[`renders shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 3"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2753,10 +2614,8 @@ exports[`renders shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -2772,7 +2631,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -2789,6 +2647,7 @@ exports[`renders shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -2811,7 +2670,6 @@ exports[`renders shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -2829,7 +2687,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -2844,7 +2701,6 @@ exports[`renders shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -2866,6 +2722,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",
@@ -2888,14 +2745,10 @@ exports[`renders shifting bottom navigation 1`] = `
         </View>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+        accessibilityComponentType="button"
+        accessibilityLabel="Route: 4"
+        accessibilityTraits="button"
         accessible={true}
-        collapsable={undefined}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2913,10 +2766,8 @@ exports[`renders shifting bottom navigation 1`] = `
             ],
           }
         }
-        testID={undefined}
       >
         <View
-          collapsable={undefined}
           style={
             Object {
               "alignSelf": "center",
@@ -2932,7 +2783,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "alignItems": "center",
@@ -2949,6 +2799,7 @@ exports[`renders shifting bottom navigation 1`] = `
               accessible={true}
               allowFontScaling={false}
               ellipsizeMode="tail"
+              pointerEvents="none"
               style={
                 Array [
                   Object {
@@ -2971,7 +2822,6 @@ exports[`renders shifting bottom navigation 1`] = `
           </View>
         </View>
         <View
-          collapsable={undefined}
           style={
             Object {
               "height": 18,
@@ -2989,7 +2839,6 @@ exports[`renders shifting bottom navigation 1`] = `
           }
         >
           <View
-            collapsable={undefined}
             style={
               Object {
                 "bottom": 0,
@@ -3004,7 +2853,6 @@ exports[`renders shifting bottom navigation 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
-              collapsable={undefined}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -3026,6 +2874,7 @@ exports[`renders shifting bottom navigation 1`] = `
                     "accent": "#ff4081",
                     "background": "#fafafa",
                     "disabled": "rgba(0, 0, 0, 0.26)",
+                    "error": "#ff1744",
                     "paper": "#ffffff",
                     "placeholder": "rgba(0, 0, 0, 0.38)",
                     "primary": "#3f51b5",

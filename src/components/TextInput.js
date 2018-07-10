@@ -7,11 +7,19 @@ import {
   TextInput as NativeTextInput,
   StyleSheet,
 } from 'react-native';
+import { polyfill } from 'react-lifecycles-compat';
 import Text from './Typography/Text';
 import withTheme from '../core/withTheme';
 import type { Theme } from '../types';
 
 const AnimatedText = Animated.createAnimatedComponent(Text);
+
+const MINIMIZED_LABEL_Y_OFFSET = -22;
+const MAXIMIZED_LABEL_FONT_SIZE = 16;
+const MINIMIZED_LABEL_FONT_SIZE = 12;
+const LABEL_WIGGLE_X_OFFSET = 4;
+const FOCUS_ANIMATION_DURATION = 150;
+const BLUR_ANIMATION_DURATION = 180;
 
 type Props = {
   /**
@@ -26,6 +34,10 @@ type Props = {
    * Placeholder for the input.
    */
   placeholder?: string,
+  /**
+   * Whether to style the TextInput with error style.
+   */
+  error?: boolean,
   /**
    * Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.
    */
@@ -45,11 +57,11 @@ type Props = {
   /**
    * Callback that is called when the text input is focused.
    */
-  onFocus?: Function,
+  onFocus?: () => mixed,
   /**
    * Callback that is called when the text input is blurred.
    */
-  onBlur?: Function,
+  onBlur?: () => mixed,
   /**
    * Value of the text input.
    */
@@ -62,7 +74,9 @@ type Props = {
 };
 
 type State = {
-  focused: Animated.Value,
+  labeled: Animated.Value,
+  error: Animated.Value,
+  focused: boolean,
   placeholder: ?string,
   value: ?string,
 };
@@ -110,11 +124,23 @@ type State = {
 class TextInput extends React.Component<Props, State> {
   static defaultProps = {
     disabled: false,
+    error: false,
     multiline: false,
   };
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      value:
+        typeof nextProps.value !== 'undefined'
+          ? nextProps.value
+          : prevState.value,
+    };
+  }
+
   state = {
-    focused: new Animated.Value(0),
+    labeled: new Animated.Value(this.props.value ? 0 : 1),
+    error: new Animated.Value(this.props.error ? 1 : 0),
+    focused: false,
     placeholder: '',
     value: this.props.value,
   };
@@ -122,12 +148,27 @@ class TextInput extends React.Component<Props, State> {
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.value !== this.state.value ||
+      prevState.focused !== this.state.focused ||
       prevProps.placeholder !== this.props.placeholder
     ) {
-      if (this.state.value) {
-        this._removePlaceholder();
+      if (this.state.value || this.state.focused) {
+        this._minmizeLabel();
       } else {
-        this._setPlaceholder();
+        this._restoreLabel();
+      }
+
+      if (this.state.value || !this.state.focused) {
+        this._hidePlaceholder();
+      } else {
+        this._handleShowPlaceholder();
+      }
+    }
+
+    if (prevProps.error !== this.props.error) {
+      if (this.props.error) {
+        this._showError();
+      } else {
+        this._hideError();
       }
     }
   }
@@ -136,7 +177,7 @@ class TextInput extends React.Component<Props, State> {
     clearTimeout(this._timer);
   }
 
-  _setPlaceholder = () => {
+  _handleShowPlaceholder = () => {
     clearTimeout(this._timer);
 
     this._timer = setTimeout(
@@ -148,7 +189,7 @@ class TextInput extends React.Component<Props, State> {
     );
   };
 
-  _removePlaceholder = () =>
+  _hidePlaceholder = () =>
     this.setState({
       placeholder: '',
     });
@@ -157,24 +198,34 @@ class TextInput extends React.Component<Props, State> {
 
   _root: NativeTextInput;
 
-  _animateFocus = () => {
-    Animated.timing(this.state.focused, {
+  _showError = () => {
+    Animated.timing(this.state.error, {
       toValue: 1,
-      duration: 150,
-    }).start(this._setPlaceholder);
+      duration: FOCUS_ANIMATION_DURATION,
+    }).start(this._handleShowPlaceholder);
   };
 
-  _animateBlur = () => {
-    this._removePlaceholder();
-
-    Animated.timing(this.state.focused, {
+  _hideError = () => {
+    Animated.timing(this.state.error, {
       toValue: 0,
-      duration: 180,
+      duration: BLUR_ANIMATION_DURATION,
     }).start();
   };
 
+  _restoreLabel = () =>
+    Animated.timing(this.state.labeled, {
+      toValue: 1,
+      duration: FOCUS_ANIMATION_DURATION,
+    }).start();
+
+  _minmizeLabel = () =>
+    Animated.timing(this.state.labeled, {
+      toValue: 0,
+      duration: BLUR_ANIMATION_DURATION,
+    }).start();
+
   _handleFocus = (...args) => {
-    this._animateFocus();
+    this.setState({ focused: true });
 
     if (this.props.onFocus) {
       this.props.onFocus(...args);
@@ -182,7 +233,7 @@ class TextInput extends React.Component<Props, State> {
   };
 
   _handleBlur = (...args) => {
-    this._animateBlur();
+    this.setState({ focused: false });
 
     if (this.props.onBlur) {
       this.props.onBlur(...args);
@@ -193,6 +244,15 @@ class TextInput extends React.Component<Props, State> {
     this.setState({ value });
     this.props.onChangeText && this.props.onChangeText(value);
   };
+
+  _getBottomLineStyle = (color: string, animatedValue: *) => ({
+    backgroundColor: color,
+    transform: [{ scaleX: animatedValue }],
+    opacity: animatedValue.interpolate({
+      inputRange: [0, 0.1, 1],
+      outputRange: [0, 1, 1],
+    }),
+  });
 
   /**
    * @internal
@@ -233,6 +293,7 @@ class TextInput extends React.Component<Props, State> {
     const {
       disabled,
       label,
+      error,
       underlineColor,
       style,
       theme,
@@ -241,55 +302,55 @@ class TextInput extends React.Component<Props, State> {
 
     const { colors, fonts } = theme;
     const fontFamily = fonts.regular;
-    const primaryColor = colors.primary;
-    const inactiveColor = colors.disabled;
+    const {
+      primary: primaryColor,
+      disabled: inactiveColor,
+      error: errorColor,
+    } = colors;
 
     let inputTextColor, labelColor, bottomLineColor;
 
     if (!disabled) {
       inputTextColor = colors.text;
-      labelColor = primaryColor;
+      labelColor = (error && errorColor) || primaryColor;
       bottomLineColor = underlineColor || primaryColor;
     } else {
       inputTextColor = labelColor = bottomLineColor = inactiveColor;
     }
 
-    const labelColorAnimation = this.state.focused.interpolate({
+    const labelColorAnimation = this.state.labeled.interpolate({
       inputRange: [0, 1],
-      outputRange: [inactiveColor, labelColor],
+      outputRange: [labelColor, inactiveColor],
     });
 
-    const translateY = this.state.value
-      ? -22
-      : this.state.focused.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, -22],
-        });
-    const fontSize = this.state.value
-      ? 12
-      : this.state.focused.interpolate({
-          inputRange: [0, 1],
-          outputRange: [16, 12],
-        });
+    // Wiggle when error appears and label is minimized
+    const labelTranslateX =
+      this.state.value && error
+        ? this.state.error.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [0, LABEL_WIGGLE_X_OFFSET, 0],
+          })
+        : 0;
+
+    // Move label to top if value is set
+    const labelTranslateY = this.state.labeled.interpolate({
+      inputRange: [0, 1],
+      outputRange: [MINIMIZED_LABEL_Y_OFFSET, 0],
+    });
+
+    const labelFontSize = this.state.labeled.interpolate({
+      inputRange: [0, 1],
+      outputRange: [MINIMIZED_LABEL_FONT_SIZE, MAXIMIZED_LABEL_FONT_SIZE],
+    });
 
     const labelStyle = {
       color: labelColorAnimation,
       fontFamily,
-      fontSize,
+      fontSize: labelFontSize,
       transform: [
-        {
-          translateY,
-        },
+        { translateX: labelTranslateX },
+        { translateY: labelTranslateY },
       ],
-    };
-
-    const bottomLineStyle = {
-      backgroundColor: bottomLineColor,
-      transform: [{ scaleX: this.state.focused }],
-      opacity: this.state.focused.interpolate({
-        inputRange: [0, 0.1, 1],
-        outputRange: [0, 1, 1],
-      }),
     };
 
     return (
@@ -329,16 +390,42 @@ class TextInput extends React.Component<Props, State> {
         />
         <View pointerEvents="none" style={styles.bottomLineContainer}>
           <View
-            style={[styles.bottomLine, { backgroundColor: inactiveColor }]}
+            style={[
+              styles.bottomLine,
+              { backgroundColor: error ? errorColor : inactiveColor },
+            ]}
           />
           <Animated.View
-            style={[styles.bottomLine, styles.focusLine, bottomLineStyle]}
+            style={[
+              styles.bottomLine,
+              styles.focusLine,
+              this._getBottomLineStyle(
+                bottomLineColor,
+                this.state.labeled.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [1, 0],
+                })
+              ),
+            ]}
+          />
+          <Animated.View
+            style={[
+              styles.bottomLine,
+              styles.focusLine,
+              this._getBottomLineStyle(
+                errorColor,
+                // $FlowFixMe$
+                Animated.multiply(this.state.labeled, this.state.error)
+              ),
+            ]}
           />
         </View>
       </View>
     );
   }
 }
+
+polyfill(TextInput);
 
 export default withTheme(TextInput);
 

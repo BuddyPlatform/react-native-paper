@@ -1,6 +1,6 @@
 /* @flow */
 
-import Expo, { KeepAwake } from 'expo';
+import { KeepAwake } from 'expo';
 import * as React from 'react';
 import { StatusBar } from 'react-native';
 import {
@@ -9,7 +9,7 @@ import {
   DefaultTheme,
 } from 'react-native-paper';
 import createReactContext from 'create-react-context';
-import { DrawerNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation';
 import RootNavigator from './src/RootNavigator';
 import DrawerItems from './DrawerItems';
 import type { Theme } from 'react-native-paper/types';
@@ -20,7 +20,7 @@ type State = {
 
 const ThemeToggleContext: any = createReactContext();
 
-const App = DrawerNavigator(
+const App = createDrawerNavigator(
   { Home: { screen: RootNavigator } },
   {
     contentComponent: () => (
@@ -31,7 +31,7 @@ const App = DrawerNavigator(
   }
 );
 
-class PaperExample extends React.Component<{}, State> {
+export default class PaperExample extends React.Component<{}, State> {
   state = {
     theme: DefaultTheme,
   };
@@ -56,5 +56,3 @@ class PaperExample extends React.Component<{}, State> {
     );
   }
 }
-
-Expo.registerRootComponent(PaperExample);
