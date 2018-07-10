@@ -2,9 +2,10 @@
 
 import color from 'color';
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Divider from './Divider';
 import withTheme from '../core/withTheme';
+import Text from './Typography/Text';
 import type { Theme } from '../types';
 
 type Props = {
@@ -41,12 +42,12 @@ type Props = {
  *       <DrawerSection title="Some title">
  *         <DrawerItem
  *           label="First Item"
- *           active={this.state.active === 'First Item'}
+ *           active={active === 'First Item'}
  *           onPress={() => { this.setState({ active: 'First Item' }); }}
  *        />
  *         <DrawerItem
  *           label="Second Item"
- *           active={this.state.active === 'Second Item'}
+ *           active={active === 'Second Item'}
  *           onPress={() => { this.setState({ active: 'Second Item' }); }}
  *        />
  *      </DrawerSection>

@@ -24,7 +24,7 @@ type Props = {
  *     visible: false,
  *   };
  *
- *   _hideDialog = () => this.setState({ visble: false });
+ *   _hideDialog = () => this.setState({ visible: false });
  *
  *   render() {
  *     return (
@@ -46,9 +46,8 @@ const DialogActions = (props: Props) => (
     {React.Children.map(
       props.children,
       child =>
-        typeof child === 'object' && child !== null
-          ? /* $FlowFixMe */
-            React.cloneElement(child, {
+        React.isValidElement(child)
+          ? React.cloneElement(child, {
               compact: true,
             })
           : child

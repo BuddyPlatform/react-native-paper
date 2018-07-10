@@ -21,7 +21,7 @@ type Props = {
   /**
    * Callback that is called when the user dismisses the modal.
    */
-  onDismiss: Function,
+  onDismiss: () => mixed,
   /**
    * Determines Whether the modal is visible.
    */
@@ -43,16 +43,15 @@ type State = {
  * ## Usage
  * ```js
  * import * as React from 'react';
- * import { Text } from 'react-native';
- * import { Modal } from 'react-native-paper';
+ * import { Modal, Text } from 'react-native-paper';
  *
  * export default class MyComponent extends React.Component {
  *   state = {
  *     visible: false,
  *   };
  *
- *   _showModal = () => this.setState({ visble: true });
- *   _hideModal = () => this.setState({ visble: false });
+ *   _showModal = () => this.setState({ visible: true });
+ *   _hideModal = () => this.setState({ visible: false });
  *
  *   render() {
  *     const { visible } = this.state;
@@ -140,7 +139,7 @@ class Modal extends React.Component<Props, State> {
     return (
       <ThemedPortal>
         <Animated.View
-          style={[{ opacity: this.state.opacity }, styles.wrapper]}
+          style={[{ opacity: this.state.opacity }, StyleSheet.absoluteFill]}
         >
           <View
             style={[
@@ -153,7 +152,7 @@ class Modal extends React.Component<Props, State> {
               <View style={StyleSheet.absoluteFill} />
             </TouchableWithoutFeedback>
           )}
-          <Animated.View style={[{ opacity: this.state.opacity }]}>
+          <Animated.View style={[{ opacity: this.state.opacity }, childrenWrapper]}>
             {children}
           </Animated.View>
         </Animated.View>
@@ -166,14 +165,7 @@ polyfill(Modal);
 
 export default Modal;
 
-const marginTop = Platform.select({
-  ios: { marginTop: '25%' },
+const childrenWrapper = Platform.select({
+  ios: { marginTop: '10%' },
   android: { marginTop: '-5%' },
-});
-
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFillObject,
-    ...marginTop,
-  },
 });

@@ -1,7 +1,6 @@
 /* @flow */
 
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
 import PortalManager from './PortalManager';
 import createReactContext, { type Context } from 'create-react-context';
 import type { PortalProps } from './Portal';
@@ -90,38 +89,26 @@ export default class PortalHost extends React.Component<Props> {
     }
   };
 
+  _setManager = (manager: ?Object) => {
+    this._manager = manager;
+  };
+
   _nextKey = 0;
   _queue: Operation[] = [];
   _manager: ?PortalManager;
 
   render() {
     return (
-      <View
-        pointerEvents="box-none"
-        {...this.props}
-        style={[styles.container, this.props.style]}
+      <PortalContext.Provider
+        value={{
+          mount: this._mount,
+          update: this._update,
+          unmount: this._unmount,
+        }}
       >
-        <PortalContext.Provider
-          value={{
-            mount: this._mount,
-            update: this._update,
-            unmount: this._unmount,
-          }}
-        >
-          {this.props.children}
-        </PortalContext.Provider>
-        <PortalManager
-          ref={c => {
-            this._manager = c;
-          }}
-        />
-      </View>
+        {this.props.children}
+        <PortalManager ref={this._setManager} />
+      </PortalContext.Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

@@ -1,14 +1,9 @@
 /* @flow */
 
 import * as React from 'react';
-import {
-  StyleSheet,
-  Animated,
-  Text,
-  View,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { StyleSheet, Animated } from 'react-native';
 
+import Text from './Typography/Text';
 import ThemedPortal from './Portal/ThemedPortal';
 import withTheme from '../core/withTheme';
 import { white } from '../styles/colors';
@@ -48,13 +43,19 @@ type Props = {
 };
 
 type State = {
-  rendered: boolean,
-  height: number,
+  layout: {
+    height: number,
+    measured: boolean,
+  },
   opacity: Animated.Value,
   translateY: Animated.Value,
 };
 
 const SNACKBAR_ANIMATION_DURATION = 250;
+
+const DURATION_SHORT = 2500;
+const DURATION_LONG = 3500;
+const DURATION_INDEFINITE = Infinity;
 
 /**
  * Snackbar provide brief feedback about an operation through a message at the bottom of the screen.
@@ -66,7 +67,8 @@ const SNACKBAR_ANIMATION_DURATION = 250;
  * ## Usage
  * ```js
  * import React from 'react';
- * import { Snackbar, StyleSheet } from 'react-native-paper';
+ * import { StyleSheet } from 'react-native';
+ * import { Snackbar } from 'react-native-paper';
  *
  * export default class MyComponent extends React.Component {
  *   state = {
@@ -112,42 +114,34 @@ class Snackbar extends React.Component<Props, State> {
   /**
    * Show the Snackbar for a short duration.
    */
-  static DURATION_SHORT = 2000;
+  static DURATION_SHORT = DURATION_SHORT;
 
   /**
    * Show the Snackbar for a long duration.
    */
-  static DURATION_LONG = 3500;
+  static DURATION_LONG = DURATION_LONG;
 
   /**
    * Show the Snackbar for indefinite amount of time.
    */
-  static DURATION_INDEFINITE = Infinity;
+  static DURATION_INDEFINITE = DURATION_INDEFINITE;
 
   static defaultProps = {
-    duration: this.DURATION_LONG,
+    duration: DURATION_LONG,
   };
 
   state = {
-    rendered: false,
-    height: 0,
+    layout: {
+      height: 0,
+      measured: false,
+    },
     opacity: new Animated.Value(0),
     translateY: new Animated.Value(0),
   };
 
-  componentDidMount() {
-    if (this.props.visible) {
-      this._show();
-    }
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.visible !== this.props.visible) {
-      if (this.props.visible) {
-        this._show();
-      } else {
-        this._hide();
-      }
+      this._toggle();
     }
   }
 
@@ -159,16 +153,38 @@ class Snackbar extends React.Component<Props, State> {
 
   _handleLayout = e => {
     const { height } = e.nativeEvent.layout;
+    const { measured } = this.state.layout;
 
-    this.setState({
-      height,
-      rendered: true,
+    this.setState({ layout: { height, measured: true } }, () => {
+      if (measured) {
+        if (!this.props.visible) {
+          // If height changed and Snackbar was hidden, adjust the translate to keep it hidden
+          this.state.translateY.setValue(height);
+        }
+      } else {
+        // Set the appropriate initial values if height was previously unknown
+        this.state.translateY.setValue(height);
+        this.state.opacity.setValue(0);
+
+        // Perform the animation only if we're showing
+        if (this.props.visible) {
+          this._show();
+        }
+      }
     });
+  };
 
-    this.state.translateY.setValue(height);
+  _toggle = () => {
+    if (this.props.visible) {
+      this._show();
+    } else {
+      this._hide();
+    }
   };
 
   _show = () => {
+    clearTimeout(this._hideTimeout);
+
     Animated.parallel([
       Animated.timing(this.state.opacity, {
         toValue: 1,
@@ -183,7 +199,7 @@ class Snackbar extends React.Component<Props, State> {
     ]).start(() => {
       const { duration } = this.props;
 
-      if (duration !== Snackbar.DURATION_INDEFINITE) {
+      if (duration !== DURATION_INDEFINITE) {
         this._hideTimeout = setTimeout(this.props.onDismiss, duration);
       }
     });
@@ -199,7 +215,7 @@ class Snackbar extends React.Component<Props, State> {
         useNativeDriver: true,
       }),
       Animated.timing(this.state.translateY, {
-        toValue: this.state.height,
+        toValue: this.state.layout.height,
         duration: SNACKBAR_ANIMATION_DURATION,
         useNativeDriver: true,
       }),
@@ -210,9 +226,6 @@ class Snackbar extends React.Component<Props, State> {
     const { children, action, onDismiss, theme, style } = this.props;
     const { fonts, colors } = theme;
 
-    const buttonMargin = action ? 24 : 0;
-    const contentRightMargin = action ? 0 : 24;
-
     return (
       <ThemedPortal>
         <Animated.View
@@ -220,7 +233,7 @@ class Snackbar extends React.Component<Props, State> {
           style={[
             styles.wrapper,
             {
-              opacity: this.state.rendered ? 1 : 0,
+              opacity: this.state.layout.measured ? 1 : 0,
               transform: [
                 {
                   translateY: this.state.translateY,
@@ -241,36 +254,22 @@ class Snackbar extends React.Component<Props, State> {
               },
             ]}
           >
-            <Text
-              style={[
-                styles.content,
-                {
-                  fontFamily: fonts.regular,
-                  marginRight: contentRightMargin,
-                },
-              ]}
-            >
+            <Text style={[styles.content, { marginRight: action ? 0 : 24 }]}>
               {children}
             </Text>
             {action ? (
-              <View
-                style={{
-                  marginHorizontal: buttonMargin,
+              <Text
+                style={[
+                  styles.button,
+                  { color: colors.accent, fontFamily: fonts.medium },
+                ]}
+                onPress={() => {
+                  action.onPress();
+                  onDismiss();
                 }}
               >
-                <TouchableWithoutFeedback
-                  onPress={() => {
-                    action.onPress();
-                    onDismiss();
-                  }}
-                >
-                  <View>
-                    <Text style={{ color: colors.accent }}>
-                      {action.label.toUpperCase()}
-                    </Text>
-                  </View>
-                </TouchableWithoutFeedback>
-              </View>
+                {action.label.toUpperCase()}
+              </Text>
             ) : null}
           </Animated.View>
         </Animated.View>
@@ -298,6 +297,10 @@ const styles = StyleSheet.create({
     marginVertical: 14,
     flexWrap: 'wrap',
     flex: 1,
+  },
+  button: {
+    paddingHorizontal: 24,
+    paddingVertical: 14,
   },
 });
 

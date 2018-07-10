@@ -40,6 +40,7 @@ exports[`renders list section with title 1`] = `
           "accent": "#ff4081",
           "background": "#fafafa",
           "disabled": "rgba(0, 0, 0, 0.26)",
+          "error": "#ff1744",
           "paper": "#ffffff",
           "placeholder": "rgba(0, 0, 0, 0.38)",
           "primary": "#3f51b5",
@@ -59,15 +60,8 @@ exports[`renders list section with title 1`] = `
     Some title
   </Text>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -82,8 +76,6 @@ exports[`renders list section with title 1`] = `
         undefined,
       ]
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -93,6 +85,7 @@ exports[`renders list section with title 1`] = `
       }
     >
       <View
+        pointerEvents="box-none"
         style={
           Array [
             Object {
@@ -109,13 +102,16 @@ exports[`renders list section with title 1`] = `
           accessible={true}
           allowFontScaling={false}
           ellipsizeMode="tail"
+          pointerEvents="none"
           style={
             Array [
               Object {
                 "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
-              undefined,
+              Object {
+                "backgroundColor": "transparent",
+              },
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -128,6 +124,7 @@ exports[`renders list section with title 1`] = `
         </Text>
       </View>
       <View
+        pointerEvents="none"
         style={
           Array [
             Object {
@@ -167,6 +164,7 @@ exports[`renders list section with title 1`] = `
                 "accent": "#ff4081",
                 "background": "#fafafa",
                 "disabled": "rgba(0, 0, 0, 0.26)",
+                "error": "#ff1744",
                 "paper": "#ffffff",
                 "placeholder": "rgba(0, 0, 0, 0.38)",
                 "primary": "#3f51b5",
@@ -189,15 +187,8 @@ exports[`renders list section with title 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -212,8 +203,6 @@ exports[`renders list section with title 1`] = `
         undefined,
       ]
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -223,6 +212,7 @@ exports[`renders list section with title 1`] = `
       }
     >
       <View
+        pointerEvents="box-none"
         style={
           Array [
             Object {
@@ -239,13 +229,16 @@ exports[`renders list section with title 1`] = `
           accessible={true}
           allowFontScaling={false}
           ellipsizeMode="tail"
+          pointerEvents="none"
           style={
             Array [
               Object {
                 "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
-              undefined,
+              Object {
+                "backgroundColor": "transparent",
+              },
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -258,6 +251,7 @@ exports[`renders list section with title 1`] = `
         </Text>
       </View>
       <View
+        pointerEvents="none"
         style={
           Array [
             Object {
@@ -297,6 +291,7 @@ exports[`renders list section with title 1`] = `
                 "accent": "#ff4081",
                 "background": "#fafafa",
                 "disabled": "rgba(0, 0, 0, 0.26)",
+                "error": "#ff1744",
                 "paper": "#ffffff",
                 "placeholder": "rgba(0, 0, 0, 0.38)",
                 "primary": "#3f51b5",
@@ -333,15 +328,8 @@ exports[`renders list section without title 1`] = `
   }
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -356,8 +344,6 @@ exports[`renders list section without title 1`] = `
         undefined,
       ]
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -367,6 +353,7 @@ exports[`renders list section without title 1`] = `
       }
     >
       <View
+        pointerEvents="box-none"
         style={
           Array [
             Object {
@@ -383,13 +370,16 @@ exports[`renders list section without title 1`] = `
           accessible={true}
           allowFontScaling={false}
           ellipsizeMode="tail"
+          pointerEvents="none"
           style={
             Array [
               Object {
                 "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
-              undefined,
+              Object {
+                "backgroundColor": "transparent",
+              },
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -402,6 +392,7 @@ exports[`renders list section without title 1`] = `
         </Text>
       </View>
       <View
+        pointerEvents="none"
         style={
           Array [
             Object {
@@ -441,6 +432,7 @@ exports[`renders list section without title 1`] = `
                 "accent": "#ff4081",
                 "background": "#fafafa",
                 "disabled": "rgba(0, 0, 0, 0.26)",
+                "error": "#ff1744",
                 "paper": "#ffffff",
                 "placeholder": "rgba(0, 0, 0, 0.38)",
                 "primary": "#3f51b5",
@@ -463,15 +455,8 @@ exports[`renders list section without title 1`] = `
     </View>
   </View>
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -486,8 +471,6 @@ exports[`renders list section without title 1`] = `
         undefined,
       ]
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -497,6 +480,7 @@ exports[`renders list section without title 1`] = `
       }
     >
       <View
+        pointerEvents="box-none"
         style={
           Array [
             Object {
@@ -513,13 +497,16 @@ exports[`renders list section without title 1`] = `
           accessible={true}
           allowFontScaling={false}
           ellipsizeMode="tail"
+          pointerEvents="none"
           style={
             Array [
               Object {
                 "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
-              undefined,
+              Object {
+                "backgroundColor": "transparent",
+              },
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",
@@ -532,6 +519,7 @@ exports[`renders list section without title 1`] = `
         </Text>
       </View>
       <View
+        pointerEvents="none"
         style={
           Array [
             Object {
@@ -571,6 +559,7 @@ exports[`renders list section without title 1`] = `
                 "accent": "#ff4081",
                 "background": "#fafafa",
                 "disabled": "rgba(0, 0, 0, 0.26)",
+                "error": "#ff1744",
                 "paper": "#ffffff",
                 "placeholder": "rgba(0, 0, 0, 0.38)",
                 "primary": "#3f51b5",

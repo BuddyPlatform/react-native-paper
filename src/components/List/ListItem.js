@@ -3,12 +3,12 @@
 import color from 'color';
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Icon from './Icon';
-import TouchableRipple from './TouchableRipple';
-import Text from './Typography/Text';
-import withTheme from '../core/withTheme';
-import type { Theme } from '../types';
-import type { IconSource } from './Icon';
+import Icon from '../Icon';
+import TouchableRipple from '../TouchableRipple';
+import Text from '../Typography/Text';
+import withTheme from '../../core/withTheme';
+import type { Theme } from '../../types';
+import type { IconSource } from '../Icon';
 
 type Props = {
   /**
@@ -20,10 +20,7 @@ type Props = {
    */
   description?: React.Node,
   /**
-   * Name of the icon. Can be a string (name of `MaterialIcon`),
-   * an object of shape `{ uri: 'https://path.to' }`,
-   * a local image: `require('../path/to/image.png')`,
-   * or a valid React Native component.
+   * Icon to display for the `ListItem`.
    */
   icon?: IconSource,
   /**
@@ -33,7 +30,7 @@ type Props = {
   /**
    * Function to execute on press.
    */
-  onPress?: Function,
+  onPress?: () => mixed,
   /**
    * @optional
    */
@@ -90,20 +87,21 @@ class ListItem extends React.Component<Props> {
                 styles.avatar,
                 description && styles.multiline,
               ]}
+              pointerEvents="box-none"
             >
               {avatar || (
                 <Icon name={icon} size={24} color={descriptionColor} />
               )}
             </View>
           ) : null}
-          <View style={[styles.item, styles.content]}>
+          <View style={[styles.item, styles.content]} pointerEvents="none">
             <Text
               numberOfLines={1}
               style={[styles.title, { color: titleColor }]}
             >
               {title}
             </Text>
-            {description && (
+            {description ? (
               <Text
                 numberOfLines={2}
                 style={[
@@ -115,10 +113,13 @@ class ListItem extends React.Component<Props> {
               >
                 {description}
               </Text>
-            )}
+            ) : null}
           </View>
           {avatar && icon ? (
-            <View style={[styles.item, description && styles.multiline]}>
+            <View
+              style={[styles.item, description && styles.multiline]}
+              pointerEvents="box-none"
+            >
               <Icon name={icon} size={24} color={descriptionColor} />
             </View>
           ) : null}
